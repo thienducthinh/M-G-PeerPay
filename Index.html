@@ -8,11 +8,45 @@
             body {
                 background-color: maroon;
             }
+
+            h1 {
+                text-align: center;
+                font-size: 60pt;
+                color: gold;
+            }
+            div {
+                background-color: black;
+                margin-top: 25px;
+                padding-bottom: 150px;
+                height: 150px;
+                color: gold;
+                text-align: center; 
+                font-size: 25px;
+            }
+
+            input {
+                height: 25px;
+                font-size: 14pt;
+            }
+
+            button {
+                height: 50px;
+                width: 150px;
+                margin-top: 75px;
+                font-size: 25px;
+            }
         </style>
     </head>
 
     <body>
-        <p><strong>Hello</strong></p>
+        <h1>Welcome!</h1>
+        <div>
+            <label for="email">Email: </label>
+            <input type="text" id="email"> <br>
+            <label for="password">Password: </label>
+            <input type="text" id="password"> <br>
+            <button id="loginbutton">Login</button>
+        </div>
     </body>
 
 </html>
