@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Add CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+        <button id="logoutButton">Log Out</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Your Balance:</h2>
+            <p id="balance">$100.00</p>
+        </section>
+
+        <section>
+            <h2>Transfer or Request Dollar</h2>
+            <!-- Add  transfer/request form here -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Add footer content here -->
+    </footer>
+
+    <script>
+        // JavaScript code for handling log out button click
+        const logoutButton = document.getElementById("logoutButton");
+        logoutButton.addEventListener("click", () => {
+            // You can add code here to log the user out and redirect to index.html
+            window.location.href = "index.html"; // Redirect to the index page
+        });
+    </script>
+</body>
+</html>
