@@ -6,6 +6,51 @@
     <title>Dashboard</title>
     <style>
         /* Add CSS styles here */
+            body {
+                background-color: gold;
+            }
+
+            h1 {
+                text-align: left;
+                font-size: 40pt
+                color: maroon;
+                text-decoration: underline;
+            }
+
+            #logoutButton {
+                width: 80px;
+                height: 40px;
+                background-color: maroon; 
+                color: gold; 
+                border: 2px solid black;
+            }
+
+            h2 {
+                text-align: left;
+                font-size: 20pt;
+                color: black;
+                text-decoration: underline;
+            }
+
+            #accountbalance {
+                font-size: 15pt;
+                color: black;
+                font-style: italic;
+            }
+
+            #transferButton {
+                font-weight: bold;
+                background-color: maroon; 
+                color: gold; 
+                border: 2px solid black;
+            }
+
+            #requestButton {
+                font-weight: bold;
+                background-color: maroon; 
+                color: gold; 
+                border: 2px solid black;
+            }
     </style>
 </head>
 <body>
@@ -16,12 +61,13 @@
 
     <main>
         <section>
-            <h2>Your Balance:</h2>
-            <p id="balance">$100.00</p>
+            <h2>Your Account Balance</h2>
+            <p id="accountbalance">$100.00</p>
         </section>
 
         <section>
             <h2>Transfer or Request Dollar</h2>
+            <p >Would you like to Transfer or Request? Please click the button below. </p>
             <button id="transferButton">Transfer</button>
             <button id="requestButton">Request</button>
         </section>
@@ -37,6 +83,7 @@
         logoutButton.addEventListener("click", () => {
             // You can add code here to log the user out and redirect to index.html
             window.location.href = "index.html"; // Redirect to the index page
+
         });
     </script>
 </body>
