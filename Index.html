@@ -31,7 +31,8 @@
             #password {
                 height: 25px;
                 font-size: 14pt;
-                margin-right: 45px; 
+                margin-right: 37px;
+                margin-top: 5px; 
             }
 
             #searchButton {
@@ -58,17 +59,16 @@
             <button id="'showPasswordButton">Show Password</button> <br>
             <button id="searchButton">Login</button>
             <p id="searchResult"></p>
-
         </div>
     </body>
     
-    <script>
+    <script>    
 function handleSearch() {
     const input1 = document.getElementById("email").value.trim();
     const input2 = document.getElementById("password").value.trim();
     const searchResultp = document.getElementById("searchResult");
 
-    const csvFileURL = 'Users.csv';
+    const csvFileURL = "Users.csv";
 
     fetch(csvFileURL)
         .then(response => response.text())
@@ -100,7 +100,6 @@ function handleSearch() {
 
 const searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", handleSearch);
-
     </script>
 
 </html>
