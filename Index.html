@@ -4,102 +4,94 @@
     <head>
         <meta charset="utf-8">
         <title>Login Page</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="login.js"></script>
+
+
         <style>
+
+            @font-face {
+                font-family: 'Neue Haas Grotesk';
+                src: url('path/to/NeueHaasGrotesk.woff2') format('woff2'),
+                     url('path/to/NeueHaasGrotesk.woff') format('woff');
+                /* Add additional font formats if available */
+            }
+
+
             body {
-                background-color: maroon;
+                
+                background-color: white;
             }
 
             h1 {
+                font-family: 'Neue Haas Grotesk', sans-serif;
                 text-align: center;
                 font-size: 60pt;
-                color: gold;
+                color: maroon;
+            }
+            h2{
+                font-family: 'Neue Haas Grotesk', sans-serif;
+                text-align: center;
+                font-size: 15pt;
+                color: maroon;
             }
             div {
+                font-family: 'Neue Haas Grotesk', sans-serif;
+                background-color: white;
+                border-width: 10px;
                 margin-top: 25px;
                 padding-bottom: 150px;
                 height: 150px;
-                color: gold;
                 text-align: center; 
                 font-size: 25px;
             }
 
-            #email {
+            input {
+                font-family: 'Neue Haas Grotesk', sans-serif;
                 height: 25px;
                 font-size: 14pt;
             }
 
-            #password {
-                height: 25px;
-                font-size: 14pt;
-                margin-right: 37px;
-                margin-top: 5px; 
-            }
-
-            #searchButton {
+            #loginButton {
+                font-family: 'Neue Haas Grotesk', sans-serif;
                 height: 50px;
                 width: 150px;
-                margin-top: 50px;
+                margin-top: 75px;
                 font-size: 25px;
             }
-
+            form{
+                text-align: center;
+                background-color: lightgrey;
+                border: 10px solid gold;
+                margin-right: 35%;
+                margin-left: 35%;
+            }
+            label {
+                display: block;
+                margin-top: 10px;
+                font-size: 18px;
+            }
             #showPasswordButton {
-                height: 15px;
+                height: 2px;
             }
         </style>
     </head>
 
     <body>
-        <h1>Welcome!</h1>
+        <h1>Welcome Sun Devil!</h1>
+        <h2>Log in below to access your M&G account!</h2>
         <div>
+        <form id = "loginForm">
             <label for="email">Email: </label>
             <input type="text" id="email"> <br>
             <label for="password">Password: </label>
             <input type="password" id="password"> <br>
-            <!--No functionality on Show Password Button yet-->
+            <!--No functionality on Show Password Button yet--><br>
             <button id="'showPasswordButton">Show Password</button> <br>
-            <button id="searchButton">Login</button>
-            <p id="searchResult"></p>
+            <button id="loginButton" type="button">Login</button>
+        </form>
+        <div id = "errorText"></div>
         </div>
     </body>
-    
-    <script>    
-function handleSearch() {
-    const input1 = document.getElementById("email").value.trim();
-    const input2 = document.getElementById("password").value.trim();
-    const searchResultp = document.getElementById("searchResult");
-
-    const csvFileURL = "Users.csv";
-
-    fetch(csvFileURL)
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.split("\n");
-
-            let searchResult = "User not found";
-
-            for (let i = 0; i < rows.length; i++) {
-                const columns = rows[i].split(",");
-                if (columns.length >= 2) {
-                    const column1 = columns[0].trim();
-                    const column2 = columns[1].trim();
-
-                    if (column1.toLowerCase === input1.toLowerCase && column2 === input2) {
-                        searchResult = "Sucess!";
-                        // window.location.href = "dashboard.html";
-                        break;
-                    }
-                }
-            }
-
-            searchResultp.textContent = searchResult;
-        })
-        .catch(error => {
-            console.error("Error fetching CSV file: " + error);
-        });
-}
-
-const searchButton = document.getElementById("searchButton");
-searchButton.addEventListener("click", handleSearch);
-    </script>
 
 </html>

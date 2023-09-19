@@ -4,53 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="balance.js"></script>
     <style>
-        /* Add CSS styles here */
-            body {
-                background-color: gold;
-            }
+        @font-face {
+            font-family: 'Neue Haas Grotesk';
+            src: url('path/to/NeueHaasGrotesk.woff2') format('woff2'),
+                 url('path/to/NeueHaasGrotesk.woff') format('woff');
+            /* Add additional font formats if available */
+        }
+        section{
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            text-align: center;
+        }
+        header {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: maroon;
+            padding: 10px;
+            color: white;
+        }
+        
+        h1 {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            margin: 0;
+        }
+        
+        #logoutButton {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            background-color: maroon;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #balanceSection{
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            font-size: 25px;
 
-            h1 {
-                text-align: left;
-                font-size: 40pt
-                color: maroon;
-                text-decoration: underline;
-            }
 
-            #logoutButton {
-                width: 80px;
-                height: 40px;
-                background-color: maroon; 
-                color: gold; 
-                border: 2px solid black;
-            }
+        }
+        #balance{
+            color: gold;
+            font-size: 40px;
+        }
 
-            h2 {
-                text-align: left;
-                font-size: 20pt;
-                color: black;
-                text-decoration: underline;
-            }
+        
 
-            #accountbalance {
-                font-size: 15pt;
-                color: black;
-                font-style: italic;
-            }
-
-            #transferButton {
-                font-weight: bold;
-                background-color: maroon; 
-                color: gold; 
-                border: 2px solid black;
-            }
-
-            #requestButton {
-                font-weight: bold;
-                background-color: maroon; 
-                color: gold; 
-                border: 2px solid black;
-            }
+        
     </style>
 </head>
 <body>
@@ -60,14 +63,13 @@
     </header>
 
     <main>
-        <section>
-            <h2>Your Account Balance</h2>
-            <p id="accountbalance">$100.00</p>
+        <section id = "balanceSection">
+            <h2>Your Balance:</h2>
+            <p id="balance"></p>
         </section>
 
-        <section>
-            <h2>Transfer or Request Dollar</h2>
-            <p >Would you like to Transfer or Request? Please click the button below. </p>
+        <section id = "transSection">
+            <h2>Transfer or Request M&G</h2>
             <button id="transferButton">Transfer</button>
             <button id="requestButton">Request</button>
         </section>
@@ -83,7 +85,6 @@
         logoutButton.addEventListener("click", () => {
             // You can add code here to log the user out and redirect to index.html
             window.location.href = "index.html"; // Redirect to the index page
-
         });
     </script>
 </body>
