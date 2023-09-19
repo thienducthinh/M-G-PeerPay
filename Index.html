@@ -52,13 +52,6 @@
                 font-size: 14pt;
             }
 
-            #loginButton {
-                font-family: 'Neue Haas Grotesk', sans-serif;
-                height: 50px;
-                width: 150px;
-                margin-top: 75px;
-                font-size: 25px;
-            }
             form{
                 text-align: center;
                 background-color: lightgrey;
@@ -66,11 +59,13 @@
                 margin-right: 35%;
                 margin-left: 35%;
             }
+
             label {
                 display: block;
                 margin-top: 10px;
                 font-size: 18px;
             }
+            
             #showPasswordButton {
                 height: 2px;
             }
@@ -87,7 +82,7 @@
             <label for="password">Password: </label>
             <input type="password" id="password"> <br>
             <!--No functionality on Show Password Button yet--><br>
-            <button id="'showPasswordButton">Show Password</button> <br>
+            <button id="'showPasswordButton" type="button">Show Password</button> <br>
             <button id="loginButton" type="button">Login</button>
         </form>
         <div id = "errorText"></div>
