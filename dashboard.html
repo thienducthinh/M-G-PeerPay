@@ -7,7 +7,53 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="balance.js"></script>
     <style>
-        /* Add CSS styles here */
+        @font-face {
+            font-family: 'Neue Haas Grotesk';
+            src: url('path/to/NeueHaasGrotesk.woff2') format('woff2'),
+                 url('path/to/NeueHaasGrotesk.woff') format('woff');
+            /* Add additional font formats if available */
+        }
+        section{
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            text-align: center;
+        }
+        header {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: maroon;
+            padding: 10px;
+            color: white;
+        }
+        
+        h1 {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            margin: 0;
+        }
+        
+        #logoutButton {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            background-color: maroon;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #balanceSection{
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            font-size: 25px;
+
+
+        }
+        #balance{
+            color: gold;
+            font-size: 40px;
+        }
+
+        
+
+        
     </style>
 </head>
 <body>
@@ -17,13 +63,13 @@
     </header>
 
     <main>
-        <section>
+        <section id = "balanceSection">
             <h2>Your Balance:</h2>
             <p id="balance"></p>
         </section>
 
-        <section>
-            <h2>Transfer or Request Dollar</h2>
+        <section id = "transSection">
+            <h2>Transfer or Request M&G</h2>
             <button id="transferButton">Transfer</button>
             <button id="requestButton">Request</button>
         </section>
