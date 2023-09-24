@@ -2,8 +2,9 @@ $(document).ready(function () {
     const loginForm = document.getElementById('loginForm');
     const loginButton = document.getElementById('loginButton');
     const errorText = document.getElementById('errorText');
+    const passwordInput = document.getElementById('password');
 
-      // Function to toggle password visibility
+    // Function to toggle password visibility
     function togglePasswordVisibility() {
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
@@ -17,15 +18,10 @@ $(document).ready(function () {
         togglePasswordVisibility();
     });
 
-
     // Event listener for the login button click
     loginButton.addEventListener('click', function () {
-        // Get user input
-        console.log("button press")
         const emailInput = document.getElementById('email').value;
-        console.log(emailInput)
         const passwordInput = document.getElementById('password').value;
-        
 
         // Load and parse the CSV file using jQuery
         $.get('Users.csv', function (data) {
@@ -35,7 +31,7 @@ $(document).ready(function () {
             // Loop through each row to check for the user
             let userFound = false;
             for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
-                const [csvEmail,csvPassword] = rows[i].split(',');
+                const [csvEmail, csvPassword] = rows[i].split(',');
 
                 if (csvEmail === emailInput) {
                     userFound = true;
