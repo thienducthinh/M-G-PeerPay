@@ -4,19 +4,8 @@ $(document).ready(function () {
     const errorText = document.getElementById('errorText');
     const passwordInput = document.getElementById('password');
 
-    // Function to toggle password visibility
-    function togglePasswordVisibility() {
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-        } else {
-            passwordInput.type = 'password';
-        }
-    }
+    
 
-    // Event listener for the Show Password button click
-    document.getElementById('showPasswordButton').addEventListener('click', function () {
-        togglePasswordVisibility();
-    });
 
     // Event listener for the login button click
     loginButton.addEventListener('click', function () {

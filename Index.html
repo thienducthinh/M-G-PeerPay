@@ -7,15 +7,10 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="login.js"></script>
 
+        
 
         <style>
 
-            @font-face {
-                font-family: 'Neue Haas Grotesk';
-                src: url('path/to/NeueHaasGrotesk.woff2') format('woff2'),
-                     url('path/to/NeueHaasGrotesk.woff') format('woff');
-                /* Add additional font formats if available */
-            }
 
 
             body {
@@ -84,11 +79,32 @@
             <label for="password">Password: </label>
             <input type="password" id="password"> <br>
             <!--No functionality on Show Password Button yet--><br>
-            <button id="'showPasswordButton" type="button">Show Password</button> <br>
+            <button id="showPasswordButton" type="button">Show Password</button><br>
             <button id="loginButton" type="button">Login</button>
         </form>
         <div id = "errorText"></div>
         </div>
+        <script>
+            // Function to toggle password visibility
+            function togglePasswordVisibility() {
+                const passwordInput = document.getElementById('password');
+            
+                // Check the current type of the input field
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                } else {
+                    passwordInput.type = 'password';
+                }
+            }
+            
+            // Wait for the DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function () {
+                const passwordButton = document.getElementById('showPasswordButton');
+                passwordButton.addEventListener('click', function () {
+                    togglePasswordVisibility();
+                });
+            });
+</script>
     </body>
 
 </html>
