@@ -4,11 +4,7 @@ $(document).ready(function () {
     const errorText = document.getElementById('errorText');
     const passwordInput = document.getElementById('password');
 
-    
-
-
-    // Event listener for the login button click
-    loginButton.addEventListener('click', function () {
+    function login() {
         const emailInput = document.getElementById('email').value;
         const passwordInput = document.getElementById('password').value;
 
@@ -39,5 +35,18 @@ $(document).ready(function () {
                 errorText.textContent = 'User not found';
             }
         });
+    }
+
+    // Event listener for the login button click
+    loginButton.addEventListener('click', login);
+
+    document.addEventListener('keydown', function(event) {
+        // Check if the pressed key is "Enter"
+        if (event.key === 'Enter' || event.key === 'NumpadEnter') {
+            // Your code to execute when Enter is pressed
+            // For example, you can call a function or perform an action here
+            // E.g., submit a form, trigger a button click, etc.
+            login();
+        }
     });
 });
