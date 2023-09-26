@@ -8,33 +8,28 @@ $(document).ready(function () {
         const emailInput = document.getElementById('email').value;
         const passwordInput = document.getElementById('password').value;
 
-        // Load and parse the CSV file using jQuery
-        $.get('Users.csv', function (data) {
-            // Split CSV data into rows
-            const rows = data.split('\n');
-
-            // Loop through each row to check for the user
+        $.get("?tableName=users", function(table){
+            //   console.log(appUsers);
             let userFound = false;
-            for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
-                const [csvEmail, csvPassword] = rows[i].split(',');
-
-                if (csvEmail === emailInput) {
+            appUsers = JSON.parse(table);
+            appUsers.forEach(function(user){
+                if (user.email === emailInput) {
                     userFound = true;
-                    if (csvPassword === passwordInput) {
-                        // Redirect to the next page if email and password match
-                        // Assuming userEmailAddress contains the email address
-                        window.location.href = 'dashboard.html?email=' + encodeURIComponent(csvEmail);
+                    if (user.password === passwordInput) {
+                    // Redirect to the next page if email and password match
+                    // Assuming userEmailAddress contains the email address
+                    window.location.href = 'dashboard.html?email=' + encodeURIComponent(user.email);
                     } else {
                         errorText.textContent = 'Incorrect password';
                     }
-                    break;
                 }
-            }
-
+            });
+            
             if (!userFound) {
                 errorText.textContent = 'User not found';
             }
         });
+            
     }
 
     // Event listener for the login button click

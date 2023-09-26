@@ -83,6 +83,18 @@
             <button id="loginButton" type="button">Login</button>
         </form>
         <div id = "errorText"></div>
+        <button onclick="getUsers();">See Friends</button>
+            <div id="users">
+            <table border="1">
+            <tr>
+                <th width=200px>Email</th>
+                <th width=50px>Password</th>
+                <th width=170px>M&G</th>
+            </tr>
+            </table>
+            <table  id="usersTable" border="1">
+            
+            </table>
         </div>
         <script>
             // Function to toggle password visibility
