@@ -69,7 +69,10 @@
 
         <section id = "transSection">
             <h2>Transfer or Request M&G</h2>
-            <button id="transferButton">Transfer</button>
+            <!-- <button id="transferButton">Transfer</button> -->
+            <label for="amount">Enter the amount to transfer: $</label>
+            <input type="number" id="amount" min="1" step="1">
+            <button onclick="transferMoney()">Transfer</button>
             <button id="requestButton">Request</button>
         </section>
         <button onclick="getUsers();">See Friends</button>
@@ -92,11 +95,40 @@
     </footer>
 
     <script>
+
+         
         // JavaScript code for handling log out button click
         const logoutButton = document.getElementById("logoutButton");
         logoutButton.addEventListener("click", () => {
             // You can add code here to log the user out and redirect to index.html
             window.location.href = "index.html"; // Redirect to the index page
+
+            function transferMoney() {
+            // Get the user's balance
+            var balance = parseFloat(document.getElementById("balance").innerText);
+
+            // Get the transfer amount entered by the user
+            var transferAmount = parseFloat(document.getElementById("amount").value);
+
+            // Check if the transfer amount is valid
+            if (isNaN(transferAmount) || transferAmount <= 0) {
+                alert("Please enter a valid transfer amount.");
+                return;
+            }
+             // Check if the user has sufficient balance
+             if (transferAmount > balance) {
+                alert("Insufficient balance. You cannot transfer more than your current balance.");
+            } else {
+                // Perform the money transfer (you can add your transfer logic here)
+                alert("Money transferred successfully.");
+                // Update the balance (you can update it based on your transfer logic)
+                balance -= transferAmount;
+                document.getElementById("balance").innerText = balance.toFixed(2);
+            }
+        }
+            
+
+            
         });
     </script>
 </body>
