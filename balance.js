@@ -9,27 +9,42 @@ $(document).ready(function () {
 
 
         // Load and parse the CSV file using jQuery
-        $.get('Users.csv', function (data) {
-            console.log(data)
-            // Split CSV data into rows
-            const rows = data.split('\n');
+        // $.get('Users.csv', function (data) {
+        //     console.log(data)
+        //     // Split CSV data into rows
+        //     const rows = data.split('\n');
 
-            console.log(rows)
+        //     console.log(rows)
 
-            // Loop through each row to check for the user
+        //     // Loop through each row to check for the user
+        //     let userFound = false;
+        //     for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
+        //         const [csvEmail, csvPassword, csvBalance] = rows[i].split(',');
+
+        //         if (csvEmail === userEmail) {
+        //             userFound = true;
+        //                 // Redirect to the next page if email and password match
+        //                 userBalance.textContent = csvBalance;
+        //                 console.log()
+
+        //     }
+        // }
+
+        // });
+        $.get("?tableName=users", function(table){
+            //   console.log(appUsers);
             let userFound = false;
-            for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
-                const [csvEmail, csvPassword, csvBalance] = rows[i].split(',');
-
-                if (csvEmail === userEmail) {
+            appUsers = JSON.parse(table);
+            appUsers.forEach(function(user){
+                if (user.email === emailInput) {
                     userFound = true;
-                        // Redirect to the next page if email and password match
-                        userBalance.textContent = csvBalance;
-                        console.log()
-
+                    userBalance.textContent = user.M_and_G;
+                }
+            });
+            
+            if (!userFound) {
+                errorText.textContent = 'User not found';
             }
-        }
-
         });
 
 });
