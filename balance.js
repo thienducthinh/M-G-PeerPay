@@ -36,7 +36,7 @@ $(document).ready(function () {
             let userFound = false;
             appUsers = JSON.parse(table);
             appUsers.forEach(function(user){
-                if (user.email === emailInput) {
+                if (user.email === userEmail) {
                     userFound = true;
                     userBalance.textContent = user.M_and_G;
                 }
@@ -48,6 +48,23 @@ $(document).ready(function () {
         });
 
 });
+
+function getMandGBalance(emailToFind) {
+    // Iterate through the appUsers array
+    for (let i = 0; i < appUsers.length; i++) {
+      const user = appUsers[i];
+  
+      // Check if the current user's email matches the emailToFind
+      if (user.email === emailToFind) {
+        // Return the M_and_G balance for the matching user
+        return user.M_and_G;
+      }
+    }
+  
+    // If the email address is not found, you can return an error message or handle it as needed
+    return "Email not found"; // Example error message
+  }
+  
 
 var appUsers;
   
@@ -67,3 +84,4 @@ $.get("?tableName=users", function(table){
 }); //end $.get
 
 }
+
