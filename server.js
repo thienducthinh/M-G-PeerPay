@@ -24,10 +24,7 @@ var con = mysql.createConnection({
 });
 con.connect();
 
-
-/*
 var server = http.createServer(function(request, response) { 
-
 
 //console.log(request.url);
 //console.log(request.headers.host);
@@ -39,17 +36,19 @@ var completeurl = new URL(request.url, base);
 
 var table = completeurl.searchParams.get("tableName");
 // console.log(table);
-if (table=="products") {
+if (table == "users") {
+    // get into sql
+var MyQuery = "SELECT * from users";
+con.query(MyQuery, function(err, result, fields){
+    // console.log(result);
+    response.end(JSON.stringify(result));
 
-var myQuery = "SELECT * FROM ProductService";
-con.query(myQuery, function(err, result, fields){
-// console.log(result);
-	response.end(JSON.stringify(result));
-});
+}); 
 
 }
 
 else {
+
     var pathname = url.parse(request.url).pathname;
     var filename;
     if(pathname === "/") {
@@ -76,8 +75,6 @@ else {
 } // end for else
 }); // var server = http.createServer
 
-
-
 server.listen(3306);
-
-*/
+console.log("\nThe Web server is alive!!!\n"  + 
+    "It's listening on http://127.0.0.1:3306 or http://localhost:3306");
