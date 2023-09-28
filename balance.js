@@ -29,11 +29,11 @@ $("#usersTable").empty();
 appUsers = JSON.parse(table);
 appUsers.forEach(function(user){
 
-  $("#usersTable").append("<tr><td width=200px>" + user.email + "</td> <td width=50px>" + 
-    user.password + "</td><td width=170px>" + user.M_and_G + "</td></tr>");
+  $("#usersTable").append("<tr><td width=200px>" + user.email + "</td><td width=170px>" + user.M_and_G + "</td></tr>");
 });
 //   $("#users").append("<div id=''> </div>")
 
 }); //end $.get
 
 }
+
