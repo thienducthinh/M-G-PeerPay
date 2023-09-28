@@ -15,7 +15,7 @@ $(document).ready(function () {
         if (userEmail === user.email) {
           userFound = true;
           userBalance.textContent = user.M_and_G;
-          userName.textContent = user.email;
+          userName.textContent = user.name;
         }
           
       });
