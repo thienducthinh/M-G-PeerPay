@@ -1,5 +1,6 @@
 $(document).ready(function () {
   const userBalance = document.getElementById('balance');
+  const userName = document.getElementById('dashboard-name');
   // Parse the query parameter from the URL
   var urlParams = new URLSearchParams(window.location.search);
   var userEmail = urlParams.get('email');
@@ -11,8 +12,12 @@ $(document).ready(function () {
       let userFound = false;
       appUsers = JSON.parse(table);
       appUsers.forEach(function(user){  
+        if (userEmail === user.email) {
           userFound = true;
           userBalance.textContent = user.M_and_G;
+          userName.textContent = user.email;
+        }
+          
       });
       
   });
