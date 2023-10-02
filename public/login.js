@@ -8,17 +8,15 @@ $(document).ready(function () {
         const emailInput = document.getElementById('email').value;
         const passwordInput = document.getElementById('password').value;
 
-        $.get("?tableName=users", function(table){
-            //   console.log(appUsers);
+        $.get('/api/users', function(users){
             let userFound = false;
-            appUsers = JSON.parse(table);
-            appUsers.forEach(function(user){
+            users.forEach(function(user){
                 if (user.email === emailInput) {
                     userFound = true;
                     if (user.password === passwordInput) {
-                    // Redirect to the next page if email and password match
-                    // Assuming userEmailAddress contains the email address
-                    window.location.href = 'dashboard.html?email=' + encodeURIComponent(user.email);
+                        // Redirect to the next page if email and password match
+                        // Assuming userEmailAddress contains the email address
+                        window.location.href = 'dashboard.html?email=' + encodeURIComponent(user.email);
                     } else {
                         errorText.textContent = 'Incorrect password';
                     }
