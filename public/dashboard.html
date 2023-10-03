@@ -80,8 +80,63 @@
             <h2>Your Balance:</h2>
             <p id="balance"></p>
         </section>
+        <section id="transSection">
+            
+            <h2>Transfer M&G</h2>
+            <label for="amount"> Enter the amount to transfer: $</label>
+            <input type="number" id="amount" min="1" step="1" fdprocessid="mfkeg">
+            <button id="transferButton">Transfer</button>
+            <div id="transferResult"></div>
 
-        <section id = "transSection">
+            <script>
+                getUsers();
+                // Function to handle the transfer button click event
+                document.getElementById("transferButton").addEventListener("click", function () {
+                    var urlParams = new URLSearchParams(window.location.search);
+
+                    var senderEmail = urlParams.get("email");
+                    var receiverEmail = document.getElementById("friendEmail").value;
+                    var amount = parseFloat(document.getElementById("amount").value);
+
+                    console.log(senderEmail);
+                    console.log(receiverEmail);
+                    console.log(amount);
+
+                    if (isNaN(amount) || amount <= 0) {
+                        document.getElementById("transferResult").textContent = "Invalid amount. Please enter a positive number.";
+                        return;
+                    }
+
+                    // You can call your transferMG function here or perform AJAX requests to handle the transfer logic on the server-side
+                    // Example: transferMG(senderEmail, receiverEmail, amount);
+                    var requestData = {
+                        senderEmail: senderEmail,
+                        receiverEmail: receiverEmail,
+                        amount: amount
+                    };
+
+                    fetch("/updateBalance", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(requestData)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById("transferResult").textContent = data.message;
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            document.getElementById("transferResult").textContent = "Error updating balance.";
+                        });
+
+                    // Display a message to the user
+                    document.getElementById("transferResult").textContent = "Balance transferred successfully!";
+                });
+
+            </script>
+        <!-- <section id = "transSection">
             <h2>Transfer M&G</h2>
             <label for ="amount"> Enter the amount to transfer: $</label>
             <input type= "number" id = "amount" min="1" step="1" fdprocessid = "mfkeg">
@@ -100,7 +155,7 @@
 
             </select>
             <div id = "transButton"><button id="transferButton" onclick="transfer();">Transfer</button></div>
-        </section>
+        </section> -->
 
 
         </div>
