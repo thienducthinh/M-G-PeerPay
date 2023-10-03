@@ -1,0 +1,109 @@
+<!doctype HTML>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="login.js"></script>
+
+        
+
+        <style>
+
+
+
+            body {
+                
+                background-color: white;
+            }
+
+            h1 {
+                font-family: 'Neue Haas Grotesk', sans-serif;
+                text-align: center;
+                font-size: 60pt;
+                color: maroon;
+            }
+            h2{
+                font-family: 'Neue Haas Grotesk', sans-serif;
+                text-align: center;
+                font-size: 15pt;
+                color: maroon;
+            }
+            div {
+                font-family: 'Neue Haas Grotesk', sans-serif;
+                background-color: white;
+                border-width: 10px;
+                margin-top: 25px;
+                padding-bottom: 150px;
+                height: 150px;
+                text-align: center; 
+                font-size: 25px;
+            }
+
+            input {
+                font-family: 'Neue Haas Grotesk', sans-serif;
+                height: 25px;
+                font-size: 14pt;
+            }
+
+            form{
+                text-align: center;
+                background-color: lightgrey;
+                border: 10px solid gold;
+                margin-right: 35%;
+                margin-left: 35%;
+            }
+
+            label {
+                display: block;
+                margin-top: 10px;
+                font-size: 18px;
+            }
+            
+            #showPasswordButton {
+                height: 30px;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Welcome Sun Devil!</h1>
+        <h2>Log in below to access your M&G account!</h2>
+        <div>
+        <form id = "loginForm">
+            <label for="email">Email: </label>
+            <input type="text" id="email"> <br>
+            <label for="password">Password: </label>
+            <input type="password" id="password"> <br>
+            <!--No functionality on Show Password Button yet--><br>
+            <button id="showPasswordButton" type="button">Show Password</button><br>
+            <button id="loginButton" type="button">Login</button>
+        </form>
+        <div id = "errorText"></div>
+        <script>
+            // Function to toggle password visibility
+            function togglePasswordVisibility() {
+                const passwordInput = document.getElementById('password');
+            
+                // Check the current type of the input field
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                } else {
+                    passwordInput.type = 'password';
+                }
+            }
+            
+            // Wait for the DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function () {
+                const passwordButton = document.getElementById('showPasswordButton');
+                passwordButton.addEventListener('click', function () {
+                    togglePasswordVisibility();
+                });
+            });
+</script>
+    </body>
+
+</html>
