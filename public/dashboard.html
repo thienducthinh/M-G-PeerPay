@@ -46,6 +46,20 @@
             font-size: 40px;
         }
 
+        #transferButton{
+            font-size: 50px;
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            text-align: center;
+            background-color: maroon;
+            color: white;
+            margin-top: 5%;
+            border:none;
+            padding: 10px;
+
+
+
+        }
+
         
 
         
@@ -71,30 +85,27 @@
             <h2>Transfer M&G</h2>
             <label for ="amount"> Enter the amount to transfer: $</label>
             <input type= "number" id = "amount" min="1" step="1" fdprocessid = "mfkeg">
-            <button id="transferButton" onclick="transfer();">Transfer</button>
             <div id="transferResult"></div>
         </section>
         <section id="selectFriend">
             <h2>Select Friend</h2>
-            <label for="friendEmail">Enter your friend's email:</label>
-            <input type="text" id="friendEmail" name="friendEmail">
+            <label for="friendEmail">Choose your recipient's email:</label>
+            <select id = "friendEmail" name = "friendEmail">
+                <option value="bconsalv@asu.edu">bconsalv@asu.edu</option>
+                <option value="jrchilto@asu.edu">jrchilto@asu.edu</option>
+                <option value="kmchowdh@asu.edu">kmchowdh@asu.edu</option>
+                <option value="mchou9@asu.edu">mchou9@asu.edu</option>
+                <option value="tnguy201@asu.edu">tnguy201@asu.edu</option>
+                <option value="wmellon@asu.edu">wmellon@asu.edu</option>
+
+            </select>
+            <div id = "transButton"><button id="transferButton" onclick="transfer();">Transfer</button></div>
         </section>
 
 
-        <button onclick="getUsers();">Select Friend</button>
-        <div id="userTable">
-            <table border="1">
-            <tr>
-                <th width=200px>Email</th>
-                <th width=170px>M&G</th>
-            </tr>
-            </table>
-            <table  id="usersTable" border="1">
-            
-            </table>
         </div>
 
-        <div id="transactionsHistory">
+        <!-- <div id="transactionsHistory">
             <table border="1">
             <tr>
                 <th width=200px>Transaction ID</th>
@@ -107,7 +118,7 @@
             <table  id="transactionsTable" border="1">
 
             </table>
-        </div>
+        </div> -->
     </main>
 
     <footer>
