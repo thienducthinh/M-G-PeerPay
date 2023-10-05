@@ -55,11 +55,15 @@
             margin-top: 3%;
             border:none;
             padding: 10px;
-
-
-
         }
         
+        #selectFriend {
+            border-style: solid;
+            width: 500px;
+            text-align: center;
+            margin: 0 auto;
+
+        }
 
         
     </style>
@@ -87,7 +91,7 @@
             <div id="transferResult"></div>
         </section>
 
-        
+        <br>
         <section id="selectFriend">
             <h2>Select Friend</h2>
             <label for="friendEmail">Choose your recipient's email:</label>
@@ -105,14 +109,14 @@
             <input id="addFriend" type="text"></select>
             <button id="addFriendButton" onclick="addFriend();">Submit</button>
             <br><br>
-            <div id="textForAddFriend"></div>
-        
-            <div id = "transButton"><button id="transferButton" onclick="transfer();">Transfer</button></div>
-            
-
-            
         </section>
 
+        <section>
+            <br>
+            <div id="textForAddFriend"></div>
+
+            <div id = "transButton"><button id="transferButton" onclick="transfer();">Transfer</button></div>
+        </section>
 
         </div>
 
