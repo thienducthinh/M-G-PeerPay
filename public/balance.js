@@ -53,3 +53,36 @@ function transfer() {
   });
   location.reload();
 }
+
+function addFriend() {
+  var friend = document.getElementById('addFriend')
+  var friendValue = friend.value
+  var searchString = "@asu.edu"
+
+  var friendDropDown = document.getElementById('friendEmail')
+  var option = document.createElement('option')
+
+  const outputFriend = document.getElementById('textForAddFriend')
+
+  
+  if (friendValue.endsWith(searchString)){
+    console.log('good')
+    option.text = friendValue
+    friendDropDown.appendChild(option)
+    friendValue.value = '';
+
+    outputFriend.textContent = "**Successfully added Friend**"
+    outputFriend.style.fontSize = '24px'
+    outputFriend.style.fontWeight = 'bold'
+
+
+  }
+  else {
+    console.log('bad')
+    outputFriend.textContent = "**Please input asu.edu email**"
+    outputFriend.style.fontSize = '24px'
+    outputFriend.style.fontWeight = 'bold'
+
+  }
+
+}

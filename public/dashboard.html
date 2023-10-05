@@ -52,14 +52,13 @@
             text-align: center;
             background-color: maroon;
             color: white;
-            margin-top: 5%;
+            margin-top: 3%;
             border:none;
             padding: 10px;
 
 
 
         }
-
         
 
         
@@ -101,8 +100,17 @@
                 <option value="wmellon@asu.edu">wmellon@asu.edu</option>
 
             </select>
+            <br><br>
+            <label for="addFriend">Can't find your friend? Add their affiliated asu email here:</label>
+            <input id="addFriend" type="text"></select>
+            <button id="addFriendButton" onclick="addFriend();">Submit</button>
+            <br><br>
+            <div id="textForAddFriend"></div>
         
             <div id = "transButton"><button id="transferButton" onclick="transfer();">Transfer</button></div>
+            
+
+            
         </section>
 
 
